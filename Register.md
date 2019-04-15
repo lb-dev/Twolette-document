@@ -1,21 +1,34 @@
 # Register / Login
-## Check email
-### Request: /user/check_email
+## Check Email
+### Request
+* Request Type: **POST**
+* Request Route: **/check_email**
 
-param | type | necessary | description
----|---|---|---
-username | String | Y |
+Upon receiving an email address, the server will determine whether or not the email address is already registered with an account.
 
-Response:
+| Parameter | Type | Necessary | Description |
+| --- | --- | --- | --- |
+| email | String | Y | Email address to search for in DB |
 
+#### Request Example
 ```JSON
-
 {
-	"status": 0,
-	"message": {
-		"status": 1
-    // 0: user not found; 1: user profile not completed; 2: completed
-	}
+	"email": "emailToSearch@gmail.com"
 }
+```
 
+### Response
+
+After searching the database, the server will return aa status code depending on whether the particular email address was found.
+
+| Status Codes | Definition |
+| --- | --- |
+| 0 | Email does not exist in Database. |
+| 1 | Email exists in Database. |
+
+#### Response Example
+```JSON
+{
+	"status": 0
+}
 ```
