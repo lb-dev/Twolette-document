@@ -91,7 +91,7 @@ Server will register user in database with user data provided.
 | username | String | Y | Desired username |
 | nationality | String | Y | Nationality (code) of user |
 | ethnicity | String | Y | Ethnicity (code) of user |
-| body | String | N | Self-introduction paragraph |
+| introduction | String | N | Self-introduction paragraph |
 | dob | int | Y | User's date of birth in YYYYMMDD format |
 
 #### Request Example
@@ -103,7 +103,7 @@ Server will register user in database with user data provided.
 	"username": "tstark",
 	"nationality": "US",
 	"ethnicity": "US",
-	"body": "I am Iron Man.",
+	"introduction": "I am Iron Man.",
 	"dob": 19700529
 }
 ```
