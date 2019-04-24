@@ -2,6 +2,7 @@
 **Index**
 1. [Check Email](#check-email)
 2. [Sign-In](#sign-in)
+3. [Sign-Up](#sign-up)
 
 ## Check Email
 ### Request
@@ -27,8 +28,8 @@ After searching the database, the server will return a status code depending on 
 
 | Status Codes | Definition |
 | --- | --- |
-| 0 | Email does not exist in Database. |
-| 1 | Email exists in Database. Refer to [https://github.com/lb-dev/Twolette-document/blob/master/Sign-in.md](Sign-In) |
+| 0 | Email exists in Database |
+| 1 | Email does not exist in Database |
 
 #### Response Example
 ```JSON
@@ -37,7 +38,9 @@ After searching the database, the server will return a status code depending on 
 }
 ```
 
-## Sign-In
+## ~~Sign-In~~
+**This route is currently incomplete. DO NOT USE!**
+
 ### Request
 * Request Type: **POST**
 * Request Route: **/sign-in**
@@ -63,8 +66,8 @@ After searching the database, the server will return a status code depending on 
 
 | Status Codes | Definition |
 | --- | --- |
-| 0 | Password does not match email address |
-| 1 | Password matches email address |
+| 0 | Password matches email address |
+| 1 | Password does not match email address |
 
 #### Response Example
 ```JSON
@@ -72,3 +75,52 @@ After searching the database, the server will return a status code depending on 
 	"status": 0
 }
 ```
+
+## Sign-Up
+### Request
+* Request Type: **POST**
+* Request Route: **/sign-up**
+
+Server will register user in database with user data provided.
+
+| Parameter | Type | Necessary | Description |
+| --- | --- | --- | --- |
+| email | String | Y | Email address to use for sign-in |
+| first_name | String | Y | First name of user to register |
+| last_name | String | Y | Last name of user to register |
+| username | String | Y | Desired username |
+| nationality | String | Y | Nationality (code) of user |
+| ethnicity | String | Y | Ethnicity (code) of user |
+| body | String | N | Self-introduction paragraph |
+| dob | int | Y | User's date of birth in YYYYMMDD format |
+
+#### Request Example
+```JSON
+{
+	"email": "tstark@gmail.com",
+	"first_name": "Tony",
+	"last_name": "Stark",
+	"username": "tstark",
+	"nationality": "US",
+	"ethnicity": "US",
+	"body": "I am Iron Man.",
+	"dob": 19700529
+}
+```
+
+### Response
+
+Server will return a status code and a message (if necessary) based on whether registration process was successful.
+
+| Status Codes | Definition |
+| --- | --- |
+| 0 | Registration successful |
+| 1 | Invalid field input, will provide detailed message |
+| 2 | Unknown error |
+
+#### Response Example
+```JSON
+{
+	"status": 1,
+	"message": "Missing required field: nationality"
+}
