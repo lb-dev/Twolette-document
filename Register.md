@@ -48,6 +48,7 @@ Server will register user in database with user data provided.
 | Parameter | Type | Necessary | Description |
 | --- | --- | --- | --- |
 | email | String | Y | Email address to use for sign-in |
+| password | String | Y | Password to use for sign-in |
 | first_name | String | Y | First name of user to register |
 | last_name | String | Y | Last name of user to register |
 | username | String | Y | Desired username |
@@ -60,6 +61,7 @@ Server will register user in database with user data provided.
 ```JSON
 {
 	"email": "tstark@gmail.com",
+	"password": "ironman",
 	"first_name": "Tony",
 	"last_name": "Stark",
 	"username": "tstark",
