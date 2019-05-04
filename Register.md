@@ -1,8 +1,7 @@
 # Register / Sign-In
 **Index**
 1. [Check Email](#check-email)
-2. [Sign-In](#sign-in)
-3. [Sign-Up](#sign-up)
+2. [Sign-Up](#sign-up)
 
 ## Check Email
 ### Request
@@ -38,44 +37,6 @@ After searching the database, the server will return a status code depending on 
 }
 ```
 
-## ~~Sign-In~~
-**This route is currently incomplete. DO NOT USE!**
-
-### Request
-* Request Type: **POST**
-* Request Route: **/sign-in**
-
-Upon receiving user email and password, server will determine whether the given password matches the email address.
-
-| Parameter | Type | Necessary | Description |
-| --- | --- | --- | --- |
-| email | String | Y | Email address to sign in with |
-| password | String | Y | Password to match up with given email address |
-
-#### Request Example
-```JSON
-{
-	"email": "emailToSearch@gmail.com",
-        "password": "password1"
-}
-```
-
-### Response
-
-After searching the database, the server will return a status code depending on whether the password matches the email address.
-
-| Status Codes | Definition |
-| --- | --- |
-| 0 | Password matches email address |
-| 1 | Password does not match email address |
-
-#### Response Example
-```JSON
-{
-	"status": 0
-}
-```
-
 ## Sign-Up
 ### Request
 * Request Type: **POST**
@@ -86,7 +47,6 @@ Server will register user in database with user data provided.
 | Parameter | Type | Necessary | Description |
 | --- | --- | --- | --- |
 | email | String | Y | Email address to use for sign-in |
-| password | String | Y | Password for sign-in |
 | first_name | String | Y | First name of user to register |
 | last_name | String | Y | Last name of user to register |
 | username | String | Y | Desired username |
@@ -99,7 +59,6 @@ Server will register user in database with user data provided.
 ```JSON
 {
 	"email": "tstark@gmail.com",
-	"password": "ironman",
 	"first_name": "Tony",
 	"last_name": "Stark",
 	"username": "tstark",
