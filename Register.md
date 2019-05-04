@@ -53,7 +53,7 @@ Server will register user in database with user data provided.
 | nationality | String | Y | Nationality (code) of user |
 | ethnicity | String | Y | Ethnicity (code) of user |
 | introduction | String | N | Self-introduction paragraph |
-| dob | int | Y | User's date of birth in YYYYMMDD format |
+| dob | int | Y | User's date of birth in seconds since Jan 1st, 1970 |
 
 #### Request Example
 ```JSON
@@ -65,7 +65,7 @@ Server will register user in database with user data provided.
 	"nationality": "US",
 	"ethnicity": "US",
 	"introduction": "I am Iron Man.",
-	"dob": 19700529
+	"dob": 12812400
 }
 ```
 
